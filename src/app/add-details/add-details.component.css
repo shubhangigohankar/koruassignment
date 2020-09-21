@@ -1,0 +1,34 @@
+.controls-container{
+    width: 400px;
+}
+.addclass {
+    width:300px;
+    margin-right: 20px;
+}   
+.invalid-feedback{
+    text-align: left;
+    color:red
+  }
+  .border-details{
+    border-right:1px solid grey;
+  }
+.tableshow{
+  
+   overflow: scroll;
+}
+#table{
+ border-collapse: collapse;
+  width: 100%;
+  position: relative;
+}
+#table td, #table th {
+    border: 1px solid #ddd;
+    padding: 8px;
+  }
+  #table th{
+      font-weight: bold;
+      background-color:#5cb3fd;
+      position: sticky;
+  top: 0;
+     
+  }

@@ -1,0 +1,82 @@
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-md-6 border-details">
+      <div class="row">
+      <div fxLayout fxLayoutAlign="center center" class="col-sm-6">
+        <mat-form-field fxFlex="100%">
+          <input matInput type="text" (keyup)="doFilter($event.target.value)" placeholder="Find">
+        </mat-form-field>
+      </div>
+        <div class="col-sm-6">
+        <input type="button" class="btn btn-danger" (click)="DeleteData()" value="Delete"> </div>
+      
+       
+    </div>
+  
+            <br> 
+  <div class="tableshow" >
+    <table mat-table [dataSource]="dataSource" id="table" matSort (matSortChange)="customSort($event)">
+      <!-- Checkbox Column -->  
+      <ng-container matColumnDef="select">  
+        <th mat-header-cell *matHeaderCellDef>  
+            <mat-checkbox (change)="$event ? masterToggle() : null"  
+[checked]="selection.hasValue() && isAllSelected()"  
+[indeterminate]="selection.hasValue() && !isAllSelected()"></mat-checkbox>  
+        </th>  
+        <td mat-cell *matCellDef="let row">  
+            <mat-checkbox (click)="$event.stopPropagation()" (change)="$event ? selection.toggle(row) : null"  
+[checked]="selection.isSelected(row)" [aria-label]="checkboxLabel(row)"></mat-checkbox>  
+        </td>  
+    </ng-container> 
+      <!-- Name Column -->
+      <ng-container matColumnDef="name">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> Name </th>
+        <td mat-cell *matCellDef="let element"> {{element.name}} </td>
+      </ng-container>
+  
+      <!-- Weight Column -->
+      <ng-container matColumnDef="description">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> Description </th>
+        <td mat-cell *matCellDef="let element"> {{element.description}} </td>
+      </ng-container>
+  
+      <!-- Symbol Column -->
+      <ng-container matColumnDef="webReference">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> Web Reference </th>
+        <td mat-cell *matCellDef="let element"> {{element.webReference}} </td>
+      </ng-container>
+  
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns;" [ngClass]="{hovered: row.hovered, highlighted: row.highlighted}" (click)="row.highlighted = !row.highlighted" (mouseover)="row.hovered = true" (mouseout)="row.hovered = false"></tr>
+    </table>
+  </div>
+  <mat-paginator [pageSize]="4" [pageSizeOptions]="[4, 8, 12]">
+  </mat-paginator>
+</div>
+  <div class="col-md-6">
+<div class="addclass" >
+    <form [formGroup]="addForm" (ngSubmit)="onSubmit()">
+          <div class="form-group">
+            <label for="name">Name</label>
+            <input type="text" name="name" class="form-control" formControlName="name"  required />
+          
+          </div>
+          <div class="form-group">
+            <label for="name">Description</label>
+            <input type="text" name="description" class="form-control" formControlName="description" required/>
+            
+          </div>
+          <div class="form-group">
+            <label for="name">Web Reference</label>
+            <input type="text" name="webReference" class="form-control" formControlName="webReference" required/>
+            
+          </div>
+         
+        
+      <div class="btnGroup">  
+        <button class="btn btn-primary" type="submit" >Add</button>
+    </div>
+  </form>
+</div></div>
+</div>
+</div>

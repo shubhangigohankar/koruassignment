@@ -1,0 +1,73 @@
+<ng-template #content let-modal>
+  <div class="modal-header">
+    <h6 style="color: white;">Alerts</h6>
+   <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')" style="border-radius: 100%;color: white;">
+      <span aria-hidden="true" >&times;</span>
+    </button>
+    
+      
+  </div>
+  <div class="modal-body">
+
+<div class="alert-body">
+      <!-- Nav tabs -->
+      <ul class="nav nav-tabs" role="tablist" style="background-color: skyblue;">
+        <li class="nav-item">
+          <a class="nav-link active" data-toggle="tab" href="#immunization" style="color: skyblue;font-weight: bold;">Immunization Alerts</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" data-toggle="tab" href="#lab">Lab Alerts</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" data-toggle="tab" href="#di">DI Alerts</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link " data-toggle="tab" href="#procedure">Procedure Alerts</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" data-toggle="tab" href="#rx">RX Specific Alerts</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" data-toggle="tab" href="#dx">DX Specific Alerts</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" data-toggle="tab" href="#patient">Patient Specific Alerts</a>
+        </li>
+      </ul>
+    </div><br><hr>
+   
+        
+    <span style="color: skyblue;">Immunization Alerts</span>
+      <!-- Tab panes -->
+      <div class="tab-content">
+        
+        <div id="immunization" class="container tab-pane active" > 
+             
+             <app-add-details>   
+             </app-add-details>
+            
+          </div>      
+    
+        <div id="lab" class="container tab-pane fade"><br>
+          
+        </div>
+        <div id="di" class="container tab-pane fade"><br></div>
+          <div id="menu1" class="container tab-pane fade"><br>
+          
+          </div>
+          <div id="procedure" class="container tab-pane fade"><br></div>
+            <div id="rx" class="container tab-pane fade"><br></div>
+            <div id="dx" class="container tab-pane fade"><br></div>
+            <div id="patient" class="container tab-pane fade"><br></div>
+          
+        </div>
+        </div>
+      
+  <div class="modal-footer">
+    <button type="button" class="btn btn-secondary" (click)="modal.close('Close click')">Cancel</button>
+    <button type="button" class="btn btn-primary" (click)="modal.close('Close click')">OK</button>
+  </div>
+</ng-template>
+
+<button class="btn btn-outline-primary" style="margin:100px" (click)="openXl(content)">Open modal</button>
+<router-outlet></router-outlet>

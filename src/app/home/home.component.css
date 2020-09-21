@@ -1,0 +1,16 @@
+a{color:white
+  
+}
+.modal-header{
+ 
+  background-color: #5cb3fd;
+  
+}
+.alert-body{
+  float:right;
+  font-size: small;
+}
+#immunization{
+  display: inline-block;
+}
+
